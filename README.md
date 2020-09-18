@@ -6,7 +6,10 @@
 <a href="https://packagist.org/packages/studio/laravel-totem"><img src="https://poser.pugx.org/studio/laravel-totem/license.svg" alt="License"></a>
 </p>
 
-# Introduction
+# Fork by IHOS 
+#### Credits forked from codestudiohq/laravel-totem
+
+- Introduction
 
 [![Join the chat at https://gitter.im/laravel-totem/Lobby](https://badges.gitter.im/laravel-totem/Lobby.svg)](https://gitter.im/laravel-totem/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
