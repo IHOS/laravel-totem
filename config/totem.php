@@ -218,9 +218,11 @@ return [
     ],
     'web' => [
         'middleware' => env('TOTEM_WEB_MIDDLEWARE', 'web'),
+        'prefix' => env('TOTEM_WEB_PREFIX', 'totem'),
     ],
     'api' => [
         'middleware' => env('TOTEM_API_MIDDLEWARE', 'api'),
+        'prefix' => env('TOTEM_API_PREFIX', 'api'),
     ],
     'table_prefix' => env('TOTEM_TABLE_PREFIX', ''),
     'artisan' => [
