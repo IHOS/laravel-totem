@@ -17,10 +17,10 @@ class CreateTaskResultsTable extends TotemMigration
             ->create(TOTEM_TABLE_PREFIX.'task_results', function (Blueprint $table) {
                 $table->increments('id');
                 $table->unsignedInteger('task_id');
-                $table->timestamp('ran_at')->useCurrent();
+                $table->timestamp('ran_at', 2)->useCurrent();
                 $table->string('duration');
                 $table->longText('result');
-                $table->timestamps();
+                $table->timestamps(2);
             });
     }
 

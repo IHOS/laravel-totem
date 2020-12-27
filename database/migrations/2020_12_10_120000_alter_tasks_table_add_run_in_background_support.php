@@ -4,7 +4,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Studio\Totem\Database\TotemMigration;
 
-class CreateTaskFrequenciesTable extends TotemMigration
+class AlterTasksTableAddRunInBackgroundSupport extends TotemMigration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,8 @@ class CreateTaskFrequenciesTable extends TotemMigration
     public function up()
     {
         Schema::connection(TOTEM_DATABASE_CONNECTION)
-            ->create(TOTEM_TABLE_PREFIX.'task_frequencies', function (Blueprint $table) {
-                $table->increments('id');
-                $table->unsignedInteger('task_id');
-                $table->string('label');
-                $table->string('interval');
-                $table->timestamps(2);
+            ->table(TOTEM_TABLE_PREFIX.'tasks', function (Blueprint $table) {
+                $table->boolean('run_in_background')->default(false);
             });
     }
 
@@ -31,6 +27,8 @@ class CreateTaskFrequenciesTable extends TotemMigration
     public function down()
     {
         Schema::connection(TOTEM_DATABASE_CONNECTION)
-            ->dropIfExists(TOTEM_TABLE_PREFIX.'task_frequencies');
+            ->table(TOTEM_TABLE_PREFIX.'tasks', function (Blueprint $table) {
+                $table->dropColumn('run_in_background');
+            });
     }
 }

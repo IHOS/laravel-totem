@@ -19,7 +19,7 @@ class CreateFrequencyParametersTable extends TotemMigration
                 $table->unsignedInteger('frequency_id');
                 $table->string('name');
                 $table->string('value');
-                $table->timestamps();
+                $table->timestamps(2);
             });
     }
 

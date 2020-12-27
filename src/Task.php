@@ -4,6 +4,8 @@ namespace Studio\Totem;
 
 use Carbon\Carbon;
 use Cron\CronExpression;
+use Database\Factories\TotemTaskFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 use Studio\Totem\Traits\FrontendSortable;
@@ -11,7 +13,7 @@ use Studio\Totem\Traits\HasFrequencies;
 
 class Task extends TotemModel
 {
-    use Notifiable, HasFrequencies, FrontendSortable;
+    use Notifiable, HasFrequencies, FrontendSortable, HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -34,6 +36,7 @@ class Task extends TotemModel
         'auto_cleanup_type',
         'auto_cleanup_num',
         'run_on_one_server',
+        'run_in_background',
     ];
 
     /**
@@ -204,5 +207,15 @@ class Task extends TotemModel
                     ->delete();
             }
         }
+    }
+
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    protected static function newFactory()
+    {
+        return TotemTaskFactory::new();
     }
 }
