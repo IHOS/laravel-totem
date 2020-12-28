@@ -44,7 +44,7 @@ class Result extends TotemModel
      */
     public function getAverageRunTime(): Builder
     {
-        return $this->select(DB::raw('avg(duration)'))
+        return $this->select(DB::raw('AVG(CAST(duration as DECIMAL(10,2)))'))
             ->whereColumn('task_id', TOTEM_TABLE_PREFIX.'tasks.id')
             ->getQuery();
     }
