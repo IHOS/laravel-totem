@@ -5,6 +5,7 @@ namespace Studio\Totem;
 use Carbon\Carbon;
 use Cron\CronExpression;
 use Database\Factories\TotemTaskFactory;
+use DB;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
@@ -153,7 +154,7 @@ class Task extends TotemModel
      */
     public function getAverageRuntimeAttribute()
     {
-        return $this->results()->avg('duration') ?? 0.00;
+        return $this->results()->avg(DB::raw('CAST(duration as DECIMAL(10,2))')) ?? 0.00;
     }
 
     /**
