@@ -18,7 +18,7 @@
   ],
   "require": {
     "php": "^7.4",
-    "doctrine/dbal": "^2.11",
+    "doctrine/dbal": "^3.0",
     "illuminate/bus": "^8.11",
     "illuminate/console": "^8.11",
     "illuminate/contracts": "^8.11",
